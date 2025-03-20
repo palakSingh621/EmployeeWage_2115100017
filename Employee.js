@@ -78,6 +78,7 @@ const WORKING_DAYS= 20;
 totalEmpHrs =0;
 totalWorkingDays =0;
 let empDailyWageArr= new Array();
+let empDailyWageMap= new Map();
 while(totalEmpHrs <=HRS_IN_MONTH && totalWorkingDays < WORKING_DAYS)
 {
     totalWorkingDays++;
@@ -85,9 +86,9 @@ while(totalEmpHrs <=HRS_IN_MONTH && totalWorkingDays < WORKING_DAYS)
     let empHrs = getWorkingHours(empCheck);
     totalEmpHrs += empHrs;
     empDailyWageArr.push(calcDailyWage(empHrs));
+    empDailyWageMap.set(totalWorkingDays, calcDailyWage(empHrs));
 }
-empWage = calcDailyWage(totalEmpHrs);
-console.log("UC6-Total Days: "+totalWorkingDays+" Total Hrs: "+totalEmpHrs+ " Emp Wage: "+empWage);
+console.log(empDailyWageMap);
 //UC7
 let totEmpWage =0;
 function sum(dailyWage){
@@ -98,7 +99,7 @@ console.log("UC7A- Total Days: "+totalWorkingDays+ " Total Hrs: "+totalEmpHrs+" 
 function totalWages(totalWages, dailyWage){
     return totalWages+dailyWage;
 }
-console.log("UC7A - Emp Wage with reduce: "+ empDailyWageArr.reduce(totalWages,0));
+console.log("UC7A - Emp Wage with reduce: "+ Array(empDailyWageMap.values()).reduce(totalWages,0));
 //UC7B - Show the day along with daily wage using Array map helper funtion
 let dailyCntr =0 ;
 function mapDayWithWage(dailyWage){
