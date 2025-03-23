@@ -211,3 +211,8 @@ while (totalEmpHrs <= HRS_IN_MONTH && totalWorkingDays <WORKING_DAYS){
     // Updating the name property using setter
     employeePayrollData.name = "John";
     console.log(employeePayrollData.toString());
+
+    //UC12
+    // Creating another instance with gender and startDate
+    let newEmployeePayrollData = new EmployeePayrollData(1, "Terrisa", 30000, "F", new Date());
+    console.log(newEmployeePayrollData.toString());
