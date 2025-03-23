@@ -181,3 +181,33 @@ while (totalEmpHrs <= HRS_IN_MONTH && totalWorkingDays <WORKING_DAYS){
             });
       }
       console.log("UC 10 Showing Daily Hours Worked and Wage Earned: "+empDailyHrsAndWageArr);
+    //UC11
+    class EmployeePayrollData {
+        // Properties
+        id;
+        salary;
+    
+        // Constructor
+        constructor(id, name, salary) {
+            this.id = id;
+            this.name = name;
+            this.salary = salary;
+        }
+    
+        // Getter and Setter for name
+        get name() { return this._name; }
+        set name(name) { this._name = name; }
+    
+        // Method to return string representation of the object
+        toString() {
+            return `id=${this.id}, name='${this.name}', salary=${this.salary}`;
+        }
+    }
+    
+    // Creating an instance of EmployeePayrollData
+    let employeePayrollData = new EmployeePayrollData(1, "Mark", 30000);
+    console.log(employeePayrollData.toString());
+    
+    // Updating the name property using setter
+    employeePayrollData.name = "John";
+    console.log(employeePayrollData.toString());
